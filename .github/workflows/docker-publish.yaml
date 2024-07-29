@@ -31,10 +31,9 @@ jobs:
           go-version: '1.22.x'
       - name: Build Service
         run: |
-          cd uploader/ 
           go build -a -v -mod=readonly go.ytsaurus.tech/yt/microservices/excel/uploader/... 
           mkdir output
-          ./build/docker/build.sh --output-path output/ --image-cr  ghcr.io/
+          ./uploader/build/docker/build.sh --output-path output/ --image-cr  ghcr.io/
       - name: 'Build Inventory Image'
         run: |
           cd uploader/build/docker
