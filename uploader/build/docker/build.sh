@@ -2,7 +2,7 @@
 
 script_name=$0
 
-image_tag=""
+image_tag="latest"
 ytsaurus_source_path="."
 output_path="."
 image_cr=""
