@@ -50,9 +50,9 @@ while [[ $# -gt 0 ]]; do
 done
 
 excel_uploader="${ytsaurus_source_path}/uploader/cmd/excel-uploader/excel-uploader"
-credits="${ytsaurus_source_path}/yt/microservices/excel/uploader/build/docker/credits"
+credits="${ytsaurus_source_path}/uploader/build/docker/credits"
 
-dockerfile="${ytsaurus_source_path}/yt/microservices/excel/uploader/build/docker/Dockerfile"
+dockerfile="${ytsaurus_source_path}/uploader/build/docker/Dockerfile"
 
 cp ${excel_uploader} ${output_path}
 cp ${dockerfile} ${output_path}
