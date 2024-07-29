@@ -49,7 +49,7 @@ while [[ $# -gt 0 ]]; do
     esac
 done
 
-excel_uploader="${ytsaurus_source_path}/yt/microservices/excel/uploader/cmd/excel-uploader/excel-uploader"
+excel_uploader="${ytsaurus_source_path}/uploader/cmd/excel-uploader/excel-uploader"
 credits="${ytsaurus_source_path}/yt/microservices/excel/uploader/build/docker/credits"
 
 dockerfile="${ytsaurus_source_path}/yt/microservices/excel/uploader/build/docker/Dockerfile"
@@ -62,4 +62,5 @@ cp -r ${credits}/excel-uploader.CREDITS ${output_path}/credits
 
 cd ${output_path}
 
-docker build -t ${image_cr}ytsaurus/excel-uploader:${image_tag} .
+docker build -t ${image_cr}spiner2000/excel-uploader:${image_tag} .
+docker push ${image_cr}spiner2000/excel-uploader:${image_tag}
