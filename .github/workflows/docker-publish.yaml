@@ -29,14 +29,12 @@ jobs:
         uses: actions/setup-go@v5
         with:
           go-version: '1.22.x'
-      - name: Build Service
+      - name: Build uploader Service
         run: |
           go build -o ./uploader/cmd/excel-uploader/ -a -v -mod=readonly go.ytsaurus.tech/yt/microservices/excel/uploader/... 
-          go build -o ./exporter/cmd/excel-exporter/ -a -v -mod=readonly go.ytsaurus.tech/yt/microservices/excel/exporter/... 
+
           ./uploader/build/docker/build.sh --image-cr  ghcr.io/ --image-tag latest
-          ./exporter/build/docker/build.sh --image-cr  ghcr.io/ --image-tag latest
-      - name: 'Build Inventory Image'
+      - name: Build exporter Service
         run: |
-          cd uploader/build/docker
-          docker build . --tag ghcr.io/spiner2000/ytsaurus-excel-uploader:latest
-          docker push ghcr.io/spiner2000/ytsaurus-excel-uploader:latest
+          go build -o ./exporter/cmd/excel-exporter/ -a -v -mod=readonly go.ytsaurus.tech/yt/microservices/excel/exporter/...         
+          ./exporter/build/docker/build.sh --image-cr  ghcr.io/ --image-tag latest
